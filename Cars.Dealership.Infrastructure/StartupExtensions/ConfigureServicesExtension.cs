@@ -1,0 +1,34 @@
+﻿using Cars.Dealership.Core.Domain.RepositoryContracts;
+using Cars.Dealership.Core.ServiceContracts;
+using Cars.Dealership.Core.Services;
+using Cars.Dealership.Infrastructure.DatabaseContext;
+using Cars.Dealership.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Cars.Dealership.Infrastructure.StartupExtensions
+{
+    public static class ConfigureServicesExtension
+    {
+        public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+        {
+
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseNpgsql(
+                       configuration.GetConnectionString("Default")
+                    );
+            });
+
+
+            services.AddScoped<ICarRepository, CarRepository>();
+            services.AddScoped<ICarAdderService, CarAdderService>();
+            services.AddScoped<ICarGetterService, CarGetterService>();
+            services.AddScoped<ICarDeleterService, CarDeleterService>();
+            services.AddScoped<ICarUpdaterService, CarUpdaterService>();
+
+        }
+    }
+}

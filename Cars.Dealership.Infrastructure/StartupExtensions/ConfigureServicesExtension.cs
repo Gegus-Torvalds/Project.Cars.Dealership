@@ -1,11 +1,15 @@
-﻿using Cars.Dealership.Core.Domain.RepositoryContracts;
+﻿using Cars.Dealership.Core.Domain.IdentityEntities;
+using Cars.Dealership.Core.Domain.RepositoryContracts;
 using Cars.Dealership.Core.ServiceContracts;
 using Cars.Dealership.Core.Services;
 using Cars.Dealership.Infrastructure.DatabaseContext;
 using Cars.Dealership.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Cars.Dealership.Infrastructure.StartupExtensions
 {
@@ -29,6 +33,35 @@ namespace Cars.Dealership.Infrastructure.StartupExtensions
             services.AddScoped<ICarDeleterService, CarDeleterService>();
             services.AddScoped<ICarUpdaterService, CarUpdaterService>();
 
+
+            //services
+            //    .AddIdentityCore<ApplicationUser>(options =>
+            //    {
+            //        options.User.RequireUniqueEmail = true;
+            //        options.Password.RequireUppercase = true;
+            //        options.Password.RequireNonAlphanumeric = true;
+            //        options.Password.RequiredLength = 8; 
+            //        options.Password.RequireDigit = true;
+            //        options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5d);
+            //    })
+            //    .AddRoles<ApplicationRole>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireDigit = true;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+
+
+            }).AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddUserStore<UserStore<ApplicationUser, ApplicationRole, ApplicationDbContext, Guid>>()
+            .AddRoleStore<RoleStore<ApplicationRole, ApplicationDbContext, Guid>>()
+            .AddDefaultTokenProviders();
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Cars.Dealership.Core.Domain.Entities;
+using Cars.Dealership.Core.Domain.IdentityEntities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cars.Dealership.Infrastructure.DatabaseContext
 {
-    public class ApplicationDbContext: DbContext
+    public class ApplicationDbContext: IdentityDbContext<ApplicationUser, ApplicationRole,Guid>
     {
         public DbSet<Car> Cars { get; set; }
         public DbSet<Image> Images { get; set; }
@@ -19,10 +21,11 @@ namespace Cars.Dealership.Infrastructure.DatabaseContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Car>().ToTable("Cars");
             modelBuilder.Entity<Image>().ToTable("Images");
 
-            base.OnModelCreating(modelBuilder);
         }
 
         // all the way to here

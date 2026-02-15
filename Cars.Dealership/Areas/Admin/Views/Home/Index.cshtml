@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Page</title>
+    <link href="~/css/crudpage.css" rel="stylesheet" />
+    <script src="./crudpage.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="user field"><img src="" alt="O" class="profile-pic">user</div>
+
+        <label class="field-label">Overview</label>
+        <div class="home field">Home</div>
+        <div class="user field">Collection</div>
+
+        <label class="field-label">Management</label>
+        <div class="user field">Manage Collection</div>
+        <div class="user field">Manage Test Rides</div>
+
+    </nav>
+
+    <div class="main-container">
+        <div class="wrapper">
+
+            <a class="btn-1" href="/admin/cars/create">
+                Add Article
+            </a>
+
+            <table class="main-table">
+                <tr>
+
+                    <th class="checkbox-col"><input type="checkbox" id="selectAll"></th>
+                    <th>Id</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td data-cell="checkbox"> <input type="checkbox" class="row-checkbox"></td>
+                    <td data-cell="id">
+                        1
+                    </td>
+                    <td data-cell="make">
+                        BMW
+                    </td>
+                    <td data-cell="model">
+                        M4
+                    </td>
+                    <td data-cell="color">
+                        Red
+                    </td>
+                    <td data-cell="price">
+                        100
+                    </td>
+                    <td data-cell="buttons" class="td-actions"><button class="btn-2 btn-edit">EDIT</button><button class="btn-2 btn-delete">DEL</button></td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -24,10 +24,7 @@ namespace Cars.Dealership.Core.Domain.Entities
         public TransmissionType Transmission { get; private set; }
         public bool IsAvailable { get; private set; }
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
-
-        //explore more about why it is exactly:
-        //      why we need this line of code
-        //      why new List<Image>(); 
+        
         public ICollection<Image> Images {get; private set;} = new List<Image>();
 
 

@@ -2,14 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace Cars.Dealership.Web.Controllers
+
+namespace Cars.Dealership.UI.Controllers
 {
     [AllowAnonymous]
-
-    public class HomeController : Controller
+    public class InventoryController : Controller
     {
-        
-        public async Task<IActionResult> Index()
+        public IActionResult Cars()
         {
             return View();
         }

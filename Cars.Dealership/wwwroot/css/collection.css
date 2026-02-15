@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+
+
+
+
+
+
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    padding: 10px 30px;
+
+    width: 100%;
+    height: 70px;
+    background-color: rgb(26, 26, 26);
+    color: rgb(221, 221, 221);
+
+}
+
+
+.auth-list {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+
+.car-info__wrapper {
+    background: linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(30, 0, 0) 90%);
+    border: 3px solid; /* širina i style border-a */
+    border-image: linear-gradient(-45deg, rgb(0, 0, 0) 0%, rgb(99, 0, 0) 50%) 1;
+    color: white;
+    padding: 20px;
+    flex: 1;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* dvije kolone */
+    gap: 10px 40px;
+    /* razmak redovi / kolone */
+    width: 100%;
+    margin-top: 20px;
+}
+
+.two-col li {
+    display: grid;
+    grid-template-columns: 13ch auto;
+    /* label | value */
+}
+
+.auth-list--wrapper{ 
+    display: flex;
+    width: 200px; 
+    justify-content: end;
+    gap: 30px;
+}
+
+.product-img {
+    width: 100%;
+    height: 250px;
+    background-color: black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    /*background-image: url('~/images/image.png');*/
+    background-size: cover;
+    overflow: hidden;
+    border: 2px rgb(100, 0, 0) solid;
+}
+
+a{ 
+    text-decoration: none; 
+    color: white; 
+    transition: all 300ms ease;
+}
+a:hover{ 
+    color: rgb(255, 0, 0) ;
+}
+
+.main {
+    height: 100vh;
+}
+
+.main-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    height: 100%;
+    padding: 40px;
+    background-color: black;
+
+}
+
+.car-title {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(100, 0, 0, .5);
+    font-weight: 700;
+
+
+    height: 15%;
+}
+
+.label {
+    font-weight: 700;
+}
+
+.value {
+    font-weight: 200;
+    text-align: right;
+}

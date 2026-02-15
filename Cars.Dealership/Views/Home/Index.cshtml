@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/style.css" rel="stylesheet" />
+    <script src="~/js/script.js" defer></script>
+    <title>CARS</title>
+</head>
+<body>
+    <nav class="navigation-bar">
+        <img class="left" src="" alt="logo" />
+        <ul class="nav-links">
+            <li><a class="home-options center" href="#">Home</a></li>
+            <li><a class="home-options center" href="/inventory/cars">Inventory</a></li>
+            <li><a class="home-options center" href="#">Service Appointment</a></li>
+            <li><a class="home-options center" href="#">Contact Us</a></li>
+        </ul>
+        <ul class="auth right">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li><a class="home-options center" href="/logout">Log out</a></li>
+            }
+            else
+            {
+                <li><a class="home-options center" href="/login">Log in</a></li>
+                <li><a class="home-options center" href="/register">Register</a></li>
+            }
+                
+        </ul>
+    </nav>
+
+    <section class="hero ">
+        <div class="hero-title">
+            <h1>One place where u can buy</h1>
+            <div class="button__type-1">Collection</div>
+        </div>
+
+    </section>
+    <section class="our-services">
+        <div class="cards">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </section>
+    <section class="why-us">
+        <div class="cards-2__wrapper">
+            <div class="card-2">1</div>
+            <div class="card-2">2</div>
+
+        </div>
+        <div class="cards-2__wrapper">
+            <div class="card-2">1</div>
+            <div class="card-2">2</div>
+        </div>
+
+    </section>
+    <section class="contact-us">
+
+        <div class="socials">
+
+            <img src="" alt="FB" />
+            <img src="" alt="IG" />
+            <img src="" alt="TIKTOK" />
+            <span style="color:black;">
+                <img src="" alt="PHONE" />
+                (+387)66 000 000
+            </span>
+
+        </div>
+
+        <div class="faq">
+            <h2>FAQ</h2>
+            @User.Identity?.Name
+                <div class="question-container">
+                    <div class="question question-1"><div data-value="1"><p>1. Question 1</p> <img class="arrow-down" src="./Images/arrow_down.svg" alt="icon" /></div></div>
+                    <div class="question question-1"><div data-value="2"><p>2. Question 2</p> <img class="arrow-down" src="./Images/arrow_down.svg" alt="icon" /></div></div>
+                    <div class="question question-1"><div data-value="3"><p>3. Question 3</p> <img class="arrow-down" src="./Images/arrow_down.svg" alt="icon" /></div></div>
+
+                </div>
+        </div>
+    </section>
+
+
+
+</body>
+</html>

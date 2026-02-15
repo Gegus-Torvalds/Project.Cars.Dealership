@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-
-namespace Cars.Dealership.Web.Controllers
+namespace Cars.Dealership.UI.Areas.AdminArea.Controllers
 {
-    [AllowAnonymous]
-
+    [Authorize(Roles ="Admin")]
+    [Area("Admin")]
     public class HomeController : Controller
     {
-        
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
         }
+
+        
     }
 }

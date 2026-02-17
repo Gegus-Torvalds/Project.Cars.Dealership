@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authorization;
 using System;
+using Cars.Dealership.Infrastructure.FileStorageServiceContracts;
+using Cars.Dealership.Infrastructure.FileStorageServices;
 
 namespace Cars.Dealership.Infrastructure.StartupExtensions
 {
@@ -47,6 +49,9 @@ namespace Cars.Dealership.Infrastructure.StartupExtensions
             .AddDefaultTokenProviders();
 
 
+
+
+            services.AddScoped<IImageStorageService, ImageStorageService>();
 
 
 

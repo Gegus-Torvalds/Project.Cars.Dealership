@@ -15,7 +15,7 @@ namespace Cars.Dealership.Core.Services
             _carRepository = carRepository;
         }
 
-        public async Task<CreateCarRequest> AddCarAsync(CreateCarRequest dto)
+        public async Task<Car> AddCarAsync(Car car)
         {
             /////////////////////////////////////
             /////////////////////////////////////
@@ -32,8 +32,8 @@ namespace Cars.Dealership.Core.Services
             /////////////////////////////////////
 
 
-            await _carRepository.CreateCarAsync(CarMapper.ToEntity(dto));
-            return dto;
+            await _carRepository.CreateCarAsync(car);
+            return car;
         }
     }
 }

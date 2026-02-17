@@ -25,7 +25,7 @@ namespace Cars.Dealership.Core.Domain.Entities
         public bool IsAvailable { get; private set; }
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
         
-        public ICollection<Image> Images {get; private set;} = new List<Image>();
+        public ICollection<Image> Images {get; set;} = new List<Image>();
 
 
 

@@ -6,7 +6,7 @@ namespace Cars.Dealership.Core.ServiceContracts
 {
     public interface ICarAdderService
     {
-        Task<CreateCarRequest> AddCarAsync(CreateCarRequest dto);
+        Task<Car> AddCarAsync(Car car);
 
     }
 }

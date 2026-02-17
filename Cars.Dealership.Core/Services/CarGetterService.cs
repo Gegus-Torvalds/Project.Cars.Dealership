@@ -30,7 +30,7 @@ namespace Cars.Dealership.Core.Services
 
             if (cars is null)
                 return null;
-
+                
 
             //  explore this extensively
             return cars.Select(CarMapper.ToResponse).ToList();

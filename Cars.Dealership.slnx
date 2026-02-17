@@ -1,7 +1,5 @@
 <Solution>
-  <Folder Name="/Solution Items/">
-    <File Path="Notes.txt" />
-  </Folder>
+  <Folder Name="/Solution Items/" />
   <Project Path="Cars.Dealership.Core/Cars.Dealership.Core.csproj" Id="27c2d2a8-f265-4aa0-b2da-624e9d975889" />
   <Project Path="Cars.Dealership.Infrastructure/Cars.Dealership.Infrastructure.csproj" Id="3eca6672-9ce3-4362-92af-4a52c3de7402" />
   <Project Path="Cars.Dealership/Cars.Dealership.UI.csproj" />

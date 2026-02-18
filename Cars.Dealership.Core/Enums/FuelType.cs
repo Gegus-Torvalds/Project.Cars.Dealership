@@ -1,6 +1,6 @@
 ﻿
 
-namespace Cars.Dealership.Domain.Enums
+namespace Cars.Dealership.Core.Enums
 {
     public enum FuelType
     {

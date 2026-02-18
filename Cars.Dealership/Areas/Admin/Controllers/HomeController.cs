@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Cars.Dealership.Core.ServiceContracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Cars.Dealership.UI.Areas.AdminArea.Controllers
 {
@@ -7,9 +9,15 @@ namespace Cars.Dealership.UI.Areas.AdminArea.Controllers
     [Area("Admin")]
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ICarGetterService _carGetterService; 
+
+        public HomeController(ICarGetterService carGetterService)
         {
-            return View();
+            _carGetterService = carGetterService;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _carGetterService.GetAllCarsAsync());
         }
 
         

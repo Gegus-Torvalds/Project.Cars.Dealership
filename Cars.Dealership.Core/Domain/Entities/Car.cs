@@ -1,4 +1,4 @@
-﻿using Cars.Dealership.Domain.Enums;
+﻿using Cars.Dealership.Core.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cars.Dealership.Core.Domain.Entities

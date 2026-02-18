@@ -1,0 +1,68 @@
+﻿@model CarResponse
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="~/css/create_new.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="main-container">
+        <form method="post" action=" @Url.Action("Update", "Cars", new { area = "Admin", id = @Model.Id })" enctype="multipart/form-data">
+            <label>Make</label>
+            <input type="text" value="@Model.Make"name="make" />
+            <label>Model</label>
+            <input type="text" name="model" value="@Model.Model"/>
+            <label>Price</label>
+            <input type="number" name="price" value="@Model.Price"/>
+            <label>Year</label>
+            <input type="number" name="year" value="@Model.Year"/>
+            <label>Color</label>
+            <input type="text" name="color" value="@Model.Color"/>
+            <label>Fuel</label>
+            <select name="Fuel" value="@Model.Fuel">
+                <option value="0" @(Model.Fuel == FuelType.Petrol ? "selected" : "")>Petrol</option>
+                <option value="1" @(Model.Fuel == FuelType.Diesel ? "selected" : "")>Diesel</option>
+                <option value="2" @(Model.Fuel == FuelType.Electric ? "selected" : "")>Electric</option>
+                <option value="3" @(Model.Fuel == FuelType.Hybrid ? "selected" : "")>Hybrid</option>
+                <option value="4" @(Model.Fuel == FuelType.Hydrogen ? "selected" : "")>Hydrogen</option>
+            </select>
+
+
+
+            <label>Mileage</label>
+            <input type="number" name="mileage" value="@Model.Mileage"/>
+            <label>Transmission</label>
+            <select name="transmission" value="@Model.Transmission">
+                <option value="">-- Select Transmission --</option>
+                <option value="0" @(Model.Transmission == TransmissionType.AT ? "selected" : "")>AT</option>
+                <option value="1" @(Model.Transmission == TransmissionType.MT ? "selected" : "")>MT</option>
+                <option value="2" @(Model.Transmission == TransmissionType.AM ? "selected" : "")>AM</option>
+                <option value="3" @(Model.Transmission == TransmissionType.CVT ? "selected" : "")>CVT</option>
+            </select>
+
+            
+            <label>Available</label>
+            <div class="radio-wrapper">
+                <div>
+                    <input type="radio" id="availableYes" name="IsAvailable" value="true"   @(Model.IsAvailable ? "checked" : "") />
+                    <label for="availableYes">Yes</label>
+
+                    <input type="radio" id="availableNo" name="IsAvailable" value="false" @(!Model.IsAvailable ? "checked" : "")/>
+                    <label for="availableNo">No</label>
+                </div>
+
+                <button type="submit">Update</button>
+            </div>
+
+
+
+
+        </form>
+    </div>
+</body>
+</html>

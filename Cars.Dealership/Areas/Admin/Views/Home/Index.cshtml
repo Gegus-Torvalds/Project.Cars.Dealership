@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@model List<CarResponse>
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,26 +42,36 @@
                     <th>Price</th>
                     <th>Actions</th>
                 </tr>
+                @{
+                    int i = 1;
+                }
+                @foreach(var car in Model)
+                {
+                    
                 <tr>
                     <td data-cell="checkbox"> <input type="checkbox" class="row-checkbox"></td>
                     <td data-cell="id">
-                        1
-                    </td>
+                            @i
+                            @{
+                                i++;
+                            }
+                        </td>
                     <td data-cell="make">
-                        BMW
+                        @car.Make
                     </td>
                     <td data-cell="model">
-                        M4
+                        @car.Model
                     </td>
                     <td data-cell="color">
-                        Red
+                        @car.Color
                     </td>
                     <td data-cell="price">
-                        100
+                            €@car.Price
                     </td>
-                    <td data-cell="buttons" class="td-actions"><button class="btn-2 btn-edit">EDIT</button><button class="btn-2 btn-delete">DEL</button></td>
+                        <td data-cell="buttons" class="td-actions"><a class="btn-2 btn-edit" href="@Url.Action("Update", "Cars", new { area = "Admin", id = car.Id })">EDIT</a></td>
                 </tr>
 
+                }
 
             </table>
         </div>

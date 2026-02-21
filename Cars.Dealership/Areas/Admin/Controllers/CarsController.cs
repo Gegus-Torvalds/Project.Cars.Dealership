@@ -21,14 +21,16 @@ namespace Cars.Dealership.UI.Areas.Admin.Controllers
         private readonly ICarAdderService _carAdderService;
         private readonly IImageStorageService _imageStorageService;
         private readonly ICarGetterService _carGetterService;
-        private readonly ICarUpdaterService _carUpdaterService; 
-        public CarsController(ICarUpdaterService carUpdaterService, ICarGetterService carGetterService, IWebHostEnvironment webHostEnvironment, ICarAdderService carAdderService, IImageStorageService imageStorageService)
+        private readonly ICarUpdaterService _carUpdaterService;
+        private readonly ICarDeleterService _carDeleterService; 
+        public CarsController(ICarDeleterService carDeleterService, ICarUpdaterService carUpdaterService, ICarGetterService carGetterService, IWebHostEnvironment webHostEnvironment, ICarAdderService carAdderService, IImageStorageService imageStorageService)
         {
             _webHostEnvironment = webHostEnvironment;
             _carAdderService = carAdderService;
             _imageStorageService = imageStorageService;
             _carGetterService = carGetterService;
-            _carUpdaterService = carUpdaterService; 
+            _carUpdaterService = carUpdaterService;
+            _carDeleterService = carDeleterService;
         }
 
 
@@ -71,6 +73,17 @@ namespace Cars.Dealership.UI.Areas.Admin.Controllers
             await _carUpdaterService.UpdateCarAsync(dto);
             return RedirectToAction(nameof(HomeController.Index), "Home", new {area="Admin"});
         }
+
+        public async Task<IActionResult> Delete([FromRoute]Guid id)
+        {
+
+            bool result = await _carDeleterService.DeleteCarAsync(id);
+
+            if (!result) BadRequest("Something went wrong"); 
+
+            return RedirectToAction(nameof(HomeController.Index), "Home", new { area = "Admin" });
+        }
+
     }
 
 }

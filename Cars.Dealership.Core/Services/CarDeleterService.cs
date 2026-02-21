@@ -20,10 +20,10 @@ namespace Cars.Dealership.Core.Services
         {
             var car = _carRepository.DeleteCarAsync(id); 
             if (car is null) return false;
+            return true;
 
             
 
-            return true;
         }
 
         

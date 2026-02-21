@@ -22,5 +22,7 @@ namespace Cars.Dealership.UI.Controllers
             var cars = await _carGetterService.GetAllCarsAsync(); 
             return View(cars);
         }
+
+
     }
 }
